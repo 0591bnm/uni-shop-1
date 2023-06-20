@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "page.json":"jsonc",
+    "manifest.json":"jsonc"
+},
+
+"miniprogram.miniprogramPath": "dist\\dev\\mp-weixin"
+}
