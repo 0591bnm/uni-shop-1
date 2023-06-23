@@ -1,28 +1,35 @@
 {
 	"pages": [
 		{
+			"path": "pages/home/home",
+			"style": {}
+		},
+		{
 			"path": "pages/cart/cart",
-			"style": {
-
-			}
+			"style": {}
 		},
 		{
 			"path": "pages/cate/cate",
-			"style": {
-
-			}
-		},
-		{
-			"path": "pages/home/home",
-			"style": {
-
-			}
+			"style": {}
 		},
 		{
 			"path": "pages/my/my",
-			"style": {
-
-			}
+			"style": {}
+		}
+	],
+	"subPackages": [
+		{
+			"root": "subpkg",
+			"pages": [
+				{
+					"path": "goods_detail/goods_detail",
+					"style": {}
+				},
+				{
+					"path": "goods_list/goods_list",
+					"style": {}
+				}
+			]
 		}
 	],
 	"globalStyle": {
@@ -58,6 +65,6 @@
 				"iconPath": "./static/tab_icons/my.png",
 				"selectedIconPath": "./static/tab_icons/my-active.png"
 			}
-	]
+		]
 	}
 }
