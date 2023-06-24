@@ -136,11 +136,12 @@ swiper{
   display: flex;
   justify-content: space-around;
   margin: 15px 0;
-}
 
-.nav-img {
-  width: 128rpx;
-  height: 140rpx;
+
+  .nav-img {
+    width: 128rpx;
+    height: 140rpx;
+  }
 }
 //楼层
 .floor-title {
