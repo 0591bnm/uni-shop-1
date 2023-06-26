@@ -2,12 +2,17 @@
  * @Author: Jie你的账 2805889238@qq.com你邮箱地
  * @Date: 2023-06-21 15:28:29
  * @LastEditors: Jie你的账 2805889238@qq.com你邮箱地
- * @LastEditTime: 2023-06-23 20:14:58
+ * @LastEditTime: 2023-06-25 21:28:21
  * @FilePath: \uni-shop-1\src\pages\home\home.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <template>
   <view>
+    <!-- 搜索组件 -->
+    <view class="search-box">
+      <my-search @click="gotoSearch"></my-search>
+    </view>
+
     <!-- 轮播的区域 -->
     <swiper class="" indicator-dots="false" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
       <!-- 轮播 item 项 -->
@@ -117,16 +122,22 @@
        })
        this.floorList = res.message
       },
+      gotoSearch() {
+        uni.navigateTo({
+          url: '/subpkg/search/search'
+        }) 
+      }
     }
   }
 </script>
 
-<style lang="scss">
+<style lang="scss"> 
 //轮播图
 swiper{
   height: 330rpx;
+  margin-top: 50px;
   .swiper-item,
-  image {
+    image {
     width: 100%;
     height: 100%;
   }
@@ -156,5 +167,15 @@ swiper{
 .floor-img-box {
   display: flex;
   padding-left: 10rpx;
+}
+//搜索吸顶
+.search-box {
+  // 设置定位效果为“吸顶”
+  position: fixed;
+  width: 100%;
+  // 吸顶的“位置”
+  top: 0;
+  // 提高层级，防止被轮播图覆盖
+  z-index: 100;
 }
 </style>

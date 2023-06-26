@@ -2,11 +2,15 @@
  * @Author: Jie你的账 2805889238@qq.com你邮箱地
  * @Date: 2023-06-21 15:28:29
  * @LastEditors: Jie你的账 2805889238@qq.com你邮箱地
- * @LastEditTime: 2023-06-24 21:40:42
+ * @LastEditTime: 2023-06-25 20:16:31
  * @FilePath: \uni-shop-1\src\pages\cate\cate.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <template>
+  <!-- 使用自定义的搜索组件 -->
+  <!-- <my-search :bgcolor="'#000000'" :radis="3"></my-search> -->
+  <my-search @click="gotoSearch"></my-search>
+
   <view class="scroll-view-container">
     <!-- 左侧的滑动区域 -->
     <scroll-view class="left-scroll-view" scroll-y="true" :style="{height:wh+'px'}">
@@ -22,7 +26,7 @@
         <!-- 当前二级分类下的三级分类 -->
         <view class="cate-lv3-list">
           <!-- 三级分类的item项 -->
-          <view class="cate-lv3-item" v-for="(item3,i3) in item2.children" :key="i3">
+          <view class="cate-lv3-item" v-for="(item3,i3) in item2.children" :key="i3" @click="gotoGoodsList(item3)">
             <!-- 三级分类的图片 -->
             <image :src="item3.cat_icon"></image>
             <!-- 三级分类的文本 -->
@@ -51,7 +55,7 @@
     },
     onLoad() {
       const sysInfo = uni.getSystemInfoSync()
-      this.wh = sysInfo.windowHeight
+      this.wh = sysInfo.windowHeight - 50
       this.getCateList()
     },
 
@@ -71,7 +75,17 @@
 
         // 重新为二级分类赋值
         this.cateLevel2 = this.cateList[i].children
-        this.scrollTop = 0
+        this.scrollTop = this.scrollTop === 0 ? 1 : 0
+      },
+      gotoGoodsList(item) {
+        uni.navigateTo ({
+          url: '/subpkg/goods_list/goods_list?cid=' + item.cat_id
+        })
+      },
+      gotoSearch() {
+        uni.navigateTo({
+          url: '/subpkg/search/search'
+        }) 
       }
     }
   }
