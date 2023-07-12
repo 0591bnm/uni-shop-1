@@ -38,7 +38,7 @@
     },
     methods: {
       async getGoodsList (cb) {
-        // 打开节流阀
+        // 打开节流阀`
         this.isloading = true
        const {data:res} = await uni.$http.get('/api/public/v1/goods/search',this.queryObj)
        //请求失败
