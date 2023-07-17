@@ -2,7 +2,18 @@
   <div class="my">my</div>
 </template>
 
-<script lang="ts" setup>
+<script>
+  import badgeMix from '@/mixins/tabbar-badge.js'
+
+  export default{
+    mixins: [badgeMix],
+    data () {
+        return {
+  
+        };
+      }
+  }
 </script>
 
-<style scoped></style>
+<style lang="scss">
+</style>
